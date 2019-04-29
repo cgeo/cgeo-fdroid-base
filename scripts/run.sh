@@ -9,7 +9,7 @@ if [ -z "$JENKINS_NODE_SECRET" ]; then
   JENKINS_NODE_SECRET=$(cat $JENKINS_NODE_SECRET_FILE)
 fi
 
-if [ -z "$JENKINS_NODE_NAME" -o -z "$secret" ]; then
+if [ -z "$JENKINS_NODE_NAME" -o -z "$JENKINS_NODE_SECRET" ]; then
   echo "No credentials detected. Please check README for the ways to provide them." 2> /dev/null
   exit 1
 fi
