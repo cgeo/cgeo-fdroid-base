@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 export PATH=$PATH:/sdk/build-tools/24.0.1/
 
 fdroid_dir="/apk/repo"
