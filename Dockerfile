@@ -43,8 +43,8 @@ RUN dpkg --add-architecture i386 \
   && curl -L https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz | tar xzf - -C $ANDROID_HOME --strip-components=1 \
   && echo "y" | android update sdk --all --no-ui --force --filter build-tools-24.0.1,platform-tools,tools
 
-ADD http://www.cgeo.org/images/logo.png /apk/
-ADD http://ci.cgeo.org/jnlpJars/slave.jar /apk
+ADD https://www.cgeo.org/images/logo.png /apk/
+ADD https://ci.cgeo.org/jnlpJars/slave.jar /apk
 COPY scripts/* /usr/local/bin/
 
 CMD ["/usr/local/bin/run.sh"]

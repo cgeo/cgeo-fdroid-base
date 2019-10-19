@@ -14,4 +14,4 @@ if [ -z "$JENKINS_NODE_NAME" -o -z "$JENKINS_NODE_SECRET" ]; then
   exit 1
 fi
 
-java -jar /apk/slave.jar -jnlpUrl http://ci.cgeo.org/computer/$JENKINS_NODE_NAME/slave-agent.jnlp -secret $JENKINS_NODE_SECRET
+java -jar /apk/slave.jar -jnlpUrl https://ci.cgeo.org/computer/$JENKINS_NODE_NAME/slave-agent.jnlp -secret $JENKINS_NODE_SECRET

@@ -6,7 +6,7 @@ export PATH=$PATH:/sdk/build-tools/24.0.1/
 
 fdroid_dir="/apk/repo"
 
-apk_url="http://download.cgeo.org"
+apk_url="https://download.cgeo.org"
 
 aapt="/sdk/build-tools/24.0.1/aapt"
 
