@@ -95,9 +95,8 @@ if [[ $1 == "mainline" ]]; then
    $verbose && echo "I: Finding download links"
    apk=$(curl -s https://api.github.com/repos/cgeo/cgeo/releases/latest | grep 'browser_' | cut -d\" -f4)
    release=$(echo $apk|grep 'https\S*cgeo-release-\S*apk' -o)
-   contacts=$(echo $apk|grep 'https\S*cgeo-contacts-\S*apk' -o)
    download_apk "cgeo-release" "$release" "mainline"
-   download_apk "cgeo-contacts" "$contacts" "mainline"
+   download_apk "cgeo-contacts" "https://github.com/cgeo/cgeo/releases/download/market_20191111/cgeo-contacts-release_17.apk" "mainline"
    update_indexes "mainline"
 fi
 
