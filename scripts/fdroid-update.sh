@@ -18,18 +18,18 @@ function usage {
    echo "E: Incorrect number of arguments"
    echo "Usage: Download current version of c:geo app and update index for fdroid repo"
    echo
-   echo "$0 [nightly | mainline]"
+   echo "$0 [nightly | mainline | legacy]"
    exit 1
 }
 
-if [[ $1 != "nightly" && $1 != "mainline" ]]; then
+if [[ $1 != "nightly" && $1 != "mainline"  && $1 != "legacy" ]]; then
    usage
 fi
 
 $verbose && echo "I: Updating $1 repo"
 
 [ -d $fdroid_dir/$1/repo ] || { mkdir -p $fdroid_dir/$1/repo; $verbose && echo "I: Creating repo dir"; }
-[ -e $fdroid_dir/$1/cgeo-logo.png ] || cp /apk/cgeo-logo.png $fdroid_dir/$1/
+[ -e $fdroid_dir/$1/cgeo-logo.png ] || cp /apk/logo.png $fdroid_dir/$1/cgeo-logo.png
 
 cp -a /apk/metadata $fdroid_dir/$1/
 
@@ -107,5 +107,12 @@ if [[ $1 == "nightly" ]]; then
       download_apk "${apk}" "${apk_url}/${apk}.apk" "nightly"
    done
    update_indexes "nightly"
+fi
+
+if [[ $1 == "legacy" ]]; then
+   for apk in cgeo-legacy; do
+      download_apk "${apk}" "${apk_url}/${apk}.apk" "legacy"
+   done
+   update_indexes "legacy"
 fi
 
